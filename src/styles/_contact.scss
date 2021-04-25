@@ -1,0 +1,111 @@
+@import "./responsive_mixin";
+
+@mixin inputStyle {
+  background: $input-color;
+  outline: none;
+  border: none;
+  color: $main-font;
+}
+
+.contact {
+  display: grid;
+  margin-top: 0;
+  grid-template-columns: 2fr 1fr;
+  height: 90vh;
+  background: $background-black;
+  padding: 20px;
+
+  @include responsive_small() {
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 200px;
+    color: $main-font;
+    @include responsive_medium() {
+      padding: 0 100px;
+    }
+    @include responsive_small() {
+      padding-right: 0 50px;
+    }
+  }
+
+  .contact-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 200px;
+
+    @include responsive_medium() {
+      padding-right: 100px;
+    }
+    @include responsive_small() {
+      padding: 0 10px;
+
+      p {
+        font-size: 12px;
+      }
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .form-control {
+        small {
+          color: #e74c3c;
+          visibility: hidden;
+        }
+      }
+
+      .form-control.error small {
+        visibility: visible;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        height: 40px;
+        margin: 5px 0;
+        @include inputStyle();
+
+        &::placeholder {
+          padding: 5px;
+        }
+      }
+
+      textarea {
+        margin: 5px 0;
+        padding: 10px;
+        height: 150px;
+        width: 100%;
+        @include inputStyle();
+        resize: none;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        width: 100px;
+        background: $portfolio-color;
+        outline: none;
+        border: none;
+        color: $main-font;
+      }
+    }
+
+    h2 {
+      font-size: 30px;
+      color: $main-font;
+    }
+
+    h3 {
+      font-size: 25px;
+      color: $main-font;
+    }
+  }
+}

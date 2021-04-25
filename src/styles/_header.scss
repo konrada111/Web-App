@@ -1,0 +1,50 @@
+@import "./variables";
+@import "./responsive_mixin";
+
+nav {
+  background: #323232;
+  height: 10vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25px, 200px));
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 10vh;
+
+  .image-black {
+    margin-top: -40%;
+  }
+
+  @include responsive_small() {
+    .image-black {
+      display: none;
+    }
+    nav {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    color: white;
+    list-style: none;
+    text-transform: uppercase;
+    font-size: 12px;
+
+    @include responsive_small() {
+      flex-direction: column;
+      font-size: 10px;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .green-text {
+    color: $portfolio-color;
+  }
+}

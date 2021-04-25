@@ -1,0 +1,78 @@
+@import "./styles/header";
+@import "./styles/variables";
+@import "./styles/contact";
+@import "./styles/portfolio.scss";
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import "./styles/responsive_mixin";
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin gridCenter($min, $max, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, $max));
+  justify-content: center;
+  grid-gap: $gap;
+  place-items: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  margin-top: 10vh;
+  height: 80vh;
+
+  .first-row {
+    @include gridCenter(50px, 190px, 10px);
+    @include responsive_medium() {
+      img {
+        display: none;
+      }
+      .hidden {
+        display: initial;
+      }
+    }
+    @include responsive_small() {
+      .hidden {
+        display: none;
+      }
+      .hide {
+        display: initial;
+        width: 250px;
+      }
+    }
+  }
+
+  .second-row,
+  .third-row {
+    margin-top: -30px;
+    @include gridCenter(180px, 190px, 10px);
+    @include responsive_medium() {
+      img {
+        display: none;
+      }
+      .hidden {
+        display: initial;
+      }
+    }
+    @include responsive_small() {
+      .hidden {
+        display: none;
+      }
+    }
+  }
+}

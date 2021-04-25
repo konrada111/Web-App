@@ -1,0 +1,17 @@
+@mixin responsive_medium() {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin responsive_small() {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin responsive_mobile() {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
